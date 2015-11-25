@@ -1,7 +1,7 @@
 % Tesis ITAM CLASS -- version 0.1 (13 - Abr - 2015)
 % Clase para las tesis del ITAM
 % 
-% 13 - Abr - 2015 	Victor Martinez 	victor.martinez (at) itam.mx
+% 13 - Abr - 2015   Victor Martinez   victor.martinez (at) itam.mx
 % LICENSE: Creative Commons SA-BY 3.0
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{tesisITAM}[2015/04/13 v0.01 Template para tesis ITAM]
@@ -12,7 +12,7 @@
 \DeclareOption{tesina}{\renewcommand{\@thesis}{TESINA}}
 
 \DeclareOption*{%
-	\PassOptionsToClass{\CurrentOption}{report}%
+  \PassOptionsToClass{\CurrentOption}{report}%
 }
 
 \ProcessOptions\relax
@@ -74,25 +74,25 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% Portada  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand\maketitle{%
-	\InputIfFileExists {portada.tex} {\ClassInfo {tesisITAM} {Loaded portada.tex}} {\ClassError{tesisITAM}{No portada.tex found!}}
+  \InputIfFileExists {portada.tex} {\ClassInfo {tesisITAM} {Loaded portada.tex}} {\ClassError{tesisITAM}{No portada.tex found!}}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% Permisos  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand\publicationrights{%
-	\InputIfFileExists {derechos.tex} {\ClassInfo {tesisITAM} {Loaded derechos.tex}} {\ClassError{tesisITAM} {No derechos.tex found!}}
+  \InputIfFileExists {derechos.tex} {\ClassInfo {tesisITAM} {Loaded derechos.tex}} {\ClassError{tesisITAM} {No derechos.tex found!}}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% Resumen(es) %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \AtBeginDocument{\@ifpackageloaded{babel}{%
-	\renewenvironment{abstract}[1]{%
-		\thispagestyle{empty}\bigskip%
-		\begin{center}\begin{otherlanguage}{#1}\bf\abstractname\end{otherlanguage}\end{center}
-	}{\clearpage}
+  \renewenvironment{abstract}[1]{%
+    \thispagestyle{empty}\bigskip%
+    \begin{center}\begin{otherlanguage}{#1}\bf\abstractname\end{otherlanguage}\end{center}
+  }{\clearpage}
 }{\ClassWarning{tesisITAM} {Babel package was not loaded.}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% Env. para citas %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newenvironment{chapterquote}[2][2em]{%
-	\setlength{\@tempdima}{#1}%
-	\def\chapquote@author{#2}%
-	\parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
-	\itshape}{\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+  \setlength{\@tempdima}{#1}%
+  \def\chapquote@author{#2}%
+  \parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+  \itshape}{\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}

@@ -1,0 +1,314 @@
+\documentclass[spanish, openright,oneside]{book}
+\usepackage{amsthm}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage[vcentering,dvips,hcentering]{geometry}
+\geometry{papersize={168mm,225mm},total={124mm,185mm}}
+\addtolength{\topmargin}{-1cm}
+\addtolength{\oddsidemargin}{-1.1cm}
+\addtolength{\evensidemargin}{-1.1cm}
+\addtolength{\textwidth}{.7in}
+\addtolength{\headsep}{.2in}
+\usepackage{ulem}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,activeacute]{babel}     
+\usepackage[pdftex]{color,graphicx} 
+\usepackage{color}    
+\usepackage{here}
+\usepackage{graphicx, subfigure}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{longtable}
+\usepackage{cancel}
+
+\newtheorem{teo}{Teorema}[chapter]
+\newtheorem{defi}{Definición}[chapter]
+\newtheorem{tpr}{Proposición}[chapter]
+\newtheorem{dpr}{Propiedad}[chapter]
+\newtheorem{lem}{Lema}[chapter]
+
+\newtheorem*{cor}{Corolario}
+
+\theoremstyle{definition}
+\newtheorem{ej}{Ejemplo}[chapter]
+\newtheorem{obs}{Observación}[chapter]
+
+\renewcommand{\qedsymbol}{q.e.d}
+\renewenvironment{proof}{\textbf{\textit{Demostración:}}\\}{\textbf{\qed}\\}
+\begin{document}
+
+\spanishdecimal{.}
+
+
+
+
+\begin{titlepage}
+\begin{center}
+\Large {INSTITUTO TECNOLÓGICO AUTÓNOMO DE MÉXICO}
+\begin{figure}[H]
+ \vspace{1 cm}
+  \centering
+    \includegraphics[scale=0.5]{ITAM.png}
+\end{figure}
+ \vspace{1 cm}
+ \textbf{INTEGRALES Y FUNCIONES ELÍPTICAS}
+  \vspace{2.5cm}\\
+  \Huge{\textbf{T \ \ \ \ \ \ E \ \ \ \ \ S \ \ \ \ \ I \ \ \ \ \ \ S}}
+    \vspace{.4cm}\\
+  \Large{QUE  \ \ PARA \ \ \ OBTENER \ \ \ EL \ \ \ TÍTULO \ \ DE 
+   \vspace{.4cm}\\
+  LICENCIADO EN MATEMÁTICAS APLICADAS 
+   \vspace{.4cm}\\
+  P \ \ \ \ \ \ \ R \ \ \ \ \ \ E \ \ \ \ \ \ S \ \ \ \ \ \ E \ \ \ \ \ \ N \ \ \ \ \ \ T \ \ \ \ \ \ \ A 
+   \vspace{.4cm}\\
+ \textbf{ALONSO \ \ DELFÍN \ \  ARES \ \ DE \ \ PARGA}}
+    \vspace{1 cm}\\
+\normalsize \textbf{ASESOR: DR. GUILLERMO GRABINSKY STEIDER}
+    \vspace{.3 cm}\\
+\textbf{REVISOR: DR. CESAR LUIS GARCÍA GARCÍA}
+\vspace{1cm}\\
+MÉXICO, D.F \hfill{2014}
+\end{center}
+\end{titlepage}
+
+\newpage
+\mbox{}
+\thispagestyle{empty} % para que no se numere esta página
+
+\chapter*{}
+\pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
+\begin{flushright}
+\textit{Dedicado a \\
+...}
+\end{flushright}
+
+\chapter*{Agradecimientos} % si no queremos que añada la palabra "Capitulo"
+\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
+\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado
+
+Muchas gracias a ...
+
+\chapter*{Resumen} % si no queremos que añada la palabra "Capitulo"
+\addcontentsline{toc}{section}{Resumen} % si queremos que aparezca en el índice
+\markboth{RESUMEN}{RESUMEN} % encabezado
+
+Se explica de qué trata esta tesis
+
+\tableofcontents % indice de contenidos
+
+\chapter*{Glosario de símbolos}
+\addcontentsline{toc}{chapter}{Glosario de símbolos}
+\begin{align*}
+\mathbb{C}\ \ \ &  \text{Conjunto de los números complejos}  & & \text{\textbf{(p.\pageref{C})}}\\
+\mathbb{C^*}\ \ \ &  \mathbb{C}\backslash\{0\} & & \text{\textbf{(p.\pageref{C*})}}\\
+\widehat{\mathbb{C}}\ \ \ &\text{La Esfera de Riemann} \equiv\mathbb{C} \cup\{\infty\} & & \text{\textbf{(p.\pageref{C^})}}\\
+\mathbb{R}\ \ \ & \text{Conjunto de los números reales}   &  & \text{\textbf{(p.\pageref{R})}}\\
+\mathbb{Z}\ \ \ & \text{Conjunto de los números enteros}   & & \text{\textbf{(p.\pageref{Z})}}\\
+\mathbb{N}\ \ \ & \text{Conjunto de los números naturales}   & & \text{\textbf{(p.\pageref{N})}}\\
+\Omega\ \ \ & \text{Conjunto de todos los periodos de una función elíptica}   & & \text{\textbf{(p.\pageref{OMEGA})}}\\
+\Delta\ \ \ & \text{Paralelogramo fundamental de una función elíptica}   & & \text{\textbf{(p.\pageref{DELTA})}}\\
+\Delta_{m,n}\ \ \ & \text{Traslaciones del paralelogramo fundamental}   & & \text{\textbf{(p.\pageref{DELTAmn})}}\\
+\overline{A}\ \ \ & \text{Cerradura del conjunto $A$}   & & \text{\textbf{(p.\pageref{Cerradura})}}\\
+\partial A\ \ \ & \text{Frontera del conjunto $A$}   & & \text{\textbf{(p.\pageref{Frontera})}}\\
+ A^{o}\ \ \ & \text{Interior del conjunto $A$}   & & \text{\textbf{(p.\pageref{inta})}}\\
+\gamma\ \ \ & \text{Parametrización de una curva}   & & \text{\textbf{(p.\pageref{gamma})}}\\
+int(\gamma)\ \ \ & \text{Interior de una curva \underline{cerrada} parametrizada}   & & \text{\textbf{(p.\pageref{intgamma})}}\\
+[z \rightarrow w]\ \ \ & \text{Segmento de recta que une a $z$ con $w$ ambos incluidos}   & & \text{\textbf{(p.\pageref{ztowi})}}\\
+[z \rightarrow w)\ \ \ & \text{Segmento de recta que une a $z$ con $w$ sin incluir a $w$}   & & \text{\textbf{(p.\pageref{ztow})}}\\
+f(A)\ \ \ & \text{Imagen directa del conjunto $A$ bajo la función $f$}   & & \text{\textbf{(p.\pageref{directa})}}\\
+G_n \ \ \ & \text{Serie de Eisenstein}   & & \text{\textbf{(p.\pageref{serE})}}\\
+ord(f,\Delta)\ \ \ & \text{Orden de una función elíptica $f$}   & & \text{\textbf{(p.\pageref{orden})}}\\
+2\omega_j \ \ \ & \text{para $j=1,3$ periodos fundamentales de una función elíptica } & & \text{\textbf{(p.\pageref{PARTEIM})}}\\
+\omega_j \ \ \ & \text{para $j=1,2,3$ son los medios periodos de una función elíptica } & & \text{\textbf{(p.\pageref{medp})}}\\
+e_j \ \ \ & \text{para $j=1,2,3$ $e_j=\wp(\omega_j)$ } & & \text{\textbf{(p.\pageref{Penmedp})}}\\
+\wp \ \ \ & \text{Función elíptica $\wp$ de Weierstrass}   & & \text{\textbf{(p.\pageref{wpwei})}}\\
+\wp(z | \omega_1, \omega_3 ) \ \ \ & \text{Notación de $\wp$ enfatizando dependencia en $\omega_1, \omega_3$}   & & \text{\textbf{(p.\pageref{wpDep})}}\\
+\zeta \ \ \ & \text{Función $\zeta$ de Weierstrass}   & & \text{\textbf{(p.\pageref{zetwei})}}\\
+\sigma \ \ \ & \text{Función $\sigma$ de Weierstrass}   & & \text{\textbf{(p.\pageref{sigwei})}}\\
+\end{align*}
+\begin{align*}
+g_j \ \ \ & \text{para $j=2,3$ son los invariantes de la función $\wp$}   & & \text{\textbf{(p.\pageref{invg2g3})}}\\
+n(a) \ \ \ & \text{Cantidad de $a$-puntos en $\Delta$}   & & \text{\textbf{(p.\pageref{aptos})}}\\
+s(a) \ \ \ & \text{Suma de los $a$-puntos en $\Delta$}   & & \text{\textbf{(p.\pageref{sumAptos})}}\\
+\qed \ \ \ &  \text{``\textit{quod erat demonstrandum}'' indica el fin de una prueba}  & & \text{\textbf{(p.\pageref{qed})}}\\
+\forall \ \ \ &  \text{abreviación de ``\textit{para todo}'' }  & & \text{\textbf{(p.\pageref{forall})}}\\
+\mathfrak{Re}(z) \ \ \ &  \text{Parte Real de $z \in \mathbb{C}$ }  & & \text{\textbf{(p.\pageref{PARTEIM})}}\\
+\mathfrak{Im}(z) \ \ \ &  \text{Parte Imaginaria de $z \in \mathbb{C}$ }  & & \text{\textbf{(p.\pageref{PARTEIM})}}\\
+\overline{z} \ \ \ &  \text{Conjugado complejo de $z \in \mathbb{C}$, $\overline{z}=\mathfrak{Re}(z) - i \mathfrak{Im}(z)$ }  & & \text{\textbf{(p.\pageref{Conjugado})}}\\
+|z| \ \ \ &  \text{Modulo complejo de $z \in \mathbb{C}$, $|z|=\sqrt{(\mathfrak{Re}(z))^2+(\mathfrak{Im}(z))^2}$ }  & & \text{\textbf{(p.\pageref{Modulo})}}\\
+arg(z) \ \ \ &  \text{Argumento $z \in \mathbb{C}$, $z=|z|e^{i\cdot arg(z)}$ }  & & \text{\textbf{(p.\pageref{argz})}}\\
+\lfloor t \rfloor \ \ \ &  \text{función piso de $t \in \mathbb{R}$, $\lfloor t \rfloor=\max\left\{n \in \mathbb{Z} : n\leq t \right\}$ }  & & \text{\textbf{(p.\pageref{floor})}}\\
+z_1 \equiv z_2 \ \ \ & \text{congruencia módulo $\Omega$}   & & \text{\textbf{(p.\pageref{ptosCong})}}\\
+\exp(z) \ \ \ &  \text{Función exponencial, $\exp(z)=e^{z}$ }  & & \text{\textbf{(p.\pageref{sigwei})}}\\
+{\sum}'\ \ \ & \text{Suma perforada}   & & \text{\textbf{(p.\pageref{sumper})}}\\
+{\prod}'\ \ \ & \text{Producto perforado}   & & \text{\textbf{(p.\pageref{prodper})}}\\
+\end{align*}
+
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Índice de figuras} % para que aparezca en el indice de contenidos
+\listoffigures % indice de figuras
+%\cleardoublepage
+%\addcontentsline{toc}{chapter}{Lista de tablas} % para que aparezca en el indice de contenidos
+%\listoftables % indice de tablas
+
+
+\chapter{Funciones Simplemente Periódicas}\label{cap.fsp}
+\pagenumbering{arabic} % para empezar la numeración con números
+
+\section{Funciones de Variable Compleja}
+\label{C}
+(ver \cite{marku2005} Parte I p.160).
+
+
+\section{Funciones Periódicas}
+
+\section{Serie de Fourier}
+
+
+\chapter{Funciones Doblemente Periódicas}\label{cap.fdp}
+\label{R}
+
+\appendix 
+\chapter{Series de Taylor y de Laurent }\label{aped.A}
+\section*{Serie de Taylor \ \textbf{\textsf{\cite{marsd1996}}}  }
+
+Recordemos que se define el disco abierto de radio $R > 0$ con centro en $z_0$ como sigue:
+\[
+D_R(z_0)=\left\{ z\in\mathbb{C} : |z-z_0|<R\right\}
+\]
+y el disco cerrado de radio $R\geq0$ con centro en $z_0$ como:
+\[
+\overline{D_R(z_0)}=\left\{ z\in\mathbb{C} : |z-z_0|\leq R\right\}
+\]
+\begin{teo}\label{teotay}{(Taylor) :}
+Sea $f:G\subseteq\mathbb{C}\rightarrow \mathbb{C}$ una función analítica donde $G$ es un dominio, entonces $\forall z_0 \in G, \ \exists \ R>0 $ tal que:
+\[
+\sum_{n=0}^\infty\frac{f^{(n)}(z_0)}{n!}(z-z_0)^n
+\]
+converge uniformemente en $\overline{D_R(z_0)}$ y coincide con $f(z)$.
+\end{teo}
+
+\section*{Serie de Laurent \ \textbf{\textsf{\cite{marsd1996}}}  }
+Recordemos que se define la región anular con radios $r$ y $R$ como sigue:
+\[
+A_{r,R}(z_0)=\left\{ z\in\mathbb{C} : r<|z-z_0|<R\right\}
+\]
+donde $0\leq r < R \leq \infty$\\
+\\
+Notamos que si $z \in A_{r,R}(z_0)$ y existe $\rho >0$ tal que $\overline{D_\rho(z_0)} \subset A_{r,R}(z_0) $, entonces existen $\rho_1, \rho_2 >0$ tales que $r < \rho_1 < \rho_2 < R$ y : \[\overline{D_\rho(z_0)} \subset A_{\rho_1,\rho_2}(z_0)\] a los anillos del estilo de $ A_{\rho_1,\rho_2}(z_0) $ los llamamos subanillos de $A_{r,R}(z_0)$
+
+\begin{teo}\label{teolaurent} { (Laurent) :}
+Sea $f:A_{r,R}(z_0) \subseteq\mathbb{C}\rightarrow \mathbb{C}$ una función analítica con $0\leq r < R \leq \infty$, entonces $\forall \ z \in A_{r,R}(z_0) $ se tiene que:
+\[
+f(z)=\sum_{n=1}^\infty\frac{b_n}{(z-z_0)^n}+\sum_{n=0}^\infty a_n(z-z_0)^n
+\]
+en donde la convergencia de cada serie es uniforme en cada subanillo cerrado $\overline{A_{\rho_1, \rho_2}(z_0)}$ de $A_{r,R}(z_0)$ con $0\leq r < \rho_1 < \rho_2 < R \leq \infty$\\
+Más aún si $\rho$ es tal que: $r<\rho<R$, entonces:
+\[
+a_n=\frac{1}{2\pi i} \int\limits_{|z-z_0|=\rho} \frac{f(\zeta)}{(\zeta-z_0)^{n+1}} d\zeta \ \ \forall n=0,1,2,\cdots 
+\]
+
+\[
+b_n=\frac{1}{2\pi i} \int\limits_{|z-z_0|=\rho}f(\zeta)(\zeta-z_0)^{n-1} d\zeta \ \ \forall n=1,2,3,\cdots 
+\]
+\end{teo}
+
+\begin{obs}
+Las siguientes definiciones acerca de la serie de Laurent se dan para el caso en el que $z_0$ es una \textbf{singularidad aislada} de $f$, tenemos que $f$ es analítica en el anillo $A_{0,R}(z_0)$ con $R>0$:
+\begin{itemize}
+\item[1)] Llamamos \textbf{la parte principal de la serie de Laurent} a la serie:
+\[ \sum_{n=1}^\infty\frac{b_n}{(z-z_0)^n} \]
+\item[2)] Llamamos el \textbf{residuo de \textit{f} en $\boldsymbol{z_0}$} a $b_1$ que se denota como $Res(f,z_0)$ donde:
+\[
+Res(f,z_0)=\frac{1}{2\pi i} \int\limits_{|z-z_0|=\rho}f(\zeta) d\zeta= b_1
+\]
+\item[3)] Si existe una infinidad de $n \in \mathbb{N}$ tales que $b_n\neq0$ entonces decimos que $z_0$ es \textbf{una singularidad esencial}.
+\item[4)] Si existe $k\in \mathbb{N}$ tal que $b_k\neq0$ pero $b_j=0 \ \forall j>k$, entonces decimos que $z_0$ es un \textbf{polo de orden \textit{k}}.
+\item[5)] Si $b_n=0 \ \forall n \in \mathbb{N}$ y existe $m>1$ tal que $a_j=0 \ \forall j=0,1,\cdots, m$ pero $a_{m+1}\neq0$ entonces $z_0$ es un \textbf{cero de orden \textit{m}}
+\item[6)] Si $b_n=0 \ \forall n \in \mathbb{N}$ entonces la serie de Laurent de $f$ se reduce a la de Taylor de $f$ solamente si $z_0$ es una \textbf{singularidad removible}, es decir si:
+\[
+\lim_{z\to z_0}(z-z_0)f(z)=0
+\]
+\end{itemize}
+\end{obs}
+\label{C*}
+\chapter{Teoremas}\label{aped.B}
+El objetivo del apéndice B es enunciar, sin probar, los teoremas que usamos durante el texto. Para consultar con detalle las pruebas invitamos al lector a referirse a bibliografía señalada respectivamente al final del enunciado de cada teorema, principalmente los teoremas fueron tomados de \cite{marku2005} y \cite{marsd1996}.
+
+\begin{teo}\label{uniGlo}{(Unicidad Global)} :
+Sean $f,g:G\subseteq\mathbb{C}\rightarrow \mathbb{C}$ dos funciones analíticas en un domino $G$ y $E\subseteq G$ un subconjunto con un punto de acumulación en $G$, entonces si $f(z)=g(z) \ \forall z \in E$ sucede que $f(z)=g(z) \ \forall z \in G $.\ \ \ \textbf{\textsf{\cite{marku2005}}}  
+\end{teo}
+
+\begin{teo}\label{mapAb}{(Mapeo Abierto)} :
+Sea $f:G\subseteq\mathbb{C}\rightarrow \mathbb{C}$ una función analítica y no constante en un dominio $G$, entonces para todo $U\subseteq G$ subconjunto abierto de $G$, se tiene que $V=f(U)$ es un subconjunto abierto de $\mathbb{C}$. \ \ \ \textbf{\textsf{\cite{marsd1996}}}  
+\end{teo}
+
+\begin{teo}\label{teoMinMax}{(Weierstrass)} :
+Sea $f:G\subseteq\mathbb{C}\rightarrow \mathbb{C}$ una función analítica en un dominio $G$, si $K\subseteq G$ es un subconjunto compacto de $G$ y entonces $f(K)$ es un subconjunto compacto de $\mathbb{C}$ y por lo tanto $f$ esta acotada en $K$.\ \ \ \textbf{\textsf{\cite{marsd1996}}}  
+\end{teo}
+
+\begin{teo}\label{teoLiou}{(Liouville)} :
+Sea $f:\mathbb{C}\rightarrow \mathbb{C}$ una función entera. Si existe $M\in [0,\infty)$ tal que:
+\[
+|f(z)|\leq M \ \forall \ z \in \mathbb{C}
+\]
+entonces $f$ es una función constante.\ \ \ \textbf{\textsf{\cite{marsd1996}}}  
+\end{teo}
+
+\begin{teo}\label{teoRes}{(Teorema del Residuo)} :
+Sea $t\in [t_1,t_2]$, y sea $\gamma(t)$ una curva cerrada, i.e. $\gamma(t_1)=\gamma(t_2)$ . Si $f$ es una función analítica en $\overline{int(\gamma)}$ excepto en un conjunto de singularidades aisladas  $\left\{ z_1,z_2,\cdots, z_n \right\} \subset int(\gamma) $, entonces:
+\[
+\int\limits_{\gamma(t)}f(z)dz=2\pi i \sum\limits_{k=1}^{n} Res(f,z_k)\ \ \ \textbf{\textsf{\cite{marku2005}}}  
+\]
+
+\end{teo}
+
+\begin{teo}\label{PrinArg}{(Principio del Argumento)} :
+Sea $t\in [t_1,t_2]$ con $\gamma(t)$ una curva cerrada, i.e. $\gamma(t_1)=\gamma(t_2)$ y sea $g$ una función analítica en $\overline{int(\gamma)}$, si $f$ es una función analítica en $\overline{int(\gamma)}$ excepto en un conjunto de polos $\left\{ b_1,b_2,\cdots, b_n \right\} \subset int(\gamma)$ donde cada polo $b_j$ tiene orden $\beta_j$ $(j=1,2,\cdots ,n)$, si además $a\in \mathbb{C}$ es un punto arbitrario tal que $\left\{ a_1,a_2,\cdots, a_m \right\} \subset int(\gamma) $ son los $a$-puntos de $f$ donde cada $a$-punto $a_k$ tiene orden $\alpha_k$ $(k=1,2,\cdots ,m)$, entonces:
+\[
+\frac{1}{2\pi i}\int\limits_{\gamma(t)}g(z)\frac{f'(z)}{f(z)-a} dz= \sum\limits_{k=1}^{m} \alpha_k g(a_k) - \sum\limits_{j=1}^{n} \beta_j g(b_j) \ \ \ \textbf{\textsf{\cite{marku2005}}}  
+\]
+
+\end{teo}
+
+\begin{teo}\label{MWei}{(Prueba $M$ de Weierstrass)} :
+Si $G \subseteq \mathbb{C}$ es un dominio y $\left\{g_k \right\}_{k=1}^{\infty}$ es una sucesión de funciones ($g_k: G \rightarrow \mathbb{C} \ \forall \ k \in \mathbb{N}$) tal que:
+\begin{itemize}
+\item[i)] $\forall \  k=1, 2,\cdots$ existe $M_k>0$ tal que $|g_k(z)| \leq M_k \ \forall \ z \in G$
+\item[ii)]$ \sum \limits_{k=1}^{\infty} M_k < \infty$
+\end{itemize}
+entonces la serie $\displaystyle\sum \limits_{k=1}^{\infty} g_k$ converge absoluta y uniformemente en $G$. \ \ \ \textbf{\textsf{\cite{marsd1996}}}  
+\end{teo}
+
+\begin{teo}\label{mapcon}{(Mapeo Conforme)} :
+Sea $G$ un dominio y $f: G \rightarrow \mathbb{C} $ una función analítica en $G$, entonces la funcion $f$ es un mapeo conforme de primer tipo en todo punto $z_0 \in G$ donde $f'(z_0)\neq 0$. \ \ \ \textbf{\textsf{\cite{marku2005}}}  
+\end{teo}
+
+\begin{teo}\label{Rconj}{(Raíces Conjugadas)} :
+Sea $p(z)$ un polinomio de grado $n$ con coeficientes reales, si existe $z_j \in \mathbb{C}$ raíz del polinomio entonces $\overline{z_j}$ también es una raíz.\ \ \ \textbf{\textsf{\cite{birk1977}}}  
+\end{teo}
+
+\begin{teo}\label{PolDes}{(Factorizacion de Polinomios)} :
+Cualquier polinomio con coeficientes reales de grado $n$, se puede factorizar en polinomios con coeficientes reales de grado 1 y polinomios con coeficientes reales de grado 2, ademas dichos polinomios de grado dos tienen discriminante negativo (i.e. son irreducibles en $\mathbb{R}$). \ \ \ \textbf{\textsf{\cite{birk1977}}}  
+\end{teo}
+
+\begin{teo}\label{forlei}{(Formula de Leibniz)} :
+Sea $G=\left\{(x,t):a\leq x \leq b, c \leq t \leq d\right\}$ un rectángulo en $\mathbb{R}^2$ y sean  $ \displaystyle f, \frac{\partial f}{\partial t}: G \rightarrow \mathbb{R} $ dos funciones continuas en $G$, entonces si $\alpha, \beta : [c,d] \rightarrow [a,b]$ son dos funciones diferenciables en $[c,d]$, se tiene que la función $\varphi:[c,d]\rightarrow \mathbb{R}$ dada por:
+\[
+\varphi(t)=\int\limits_{\alpha(t)}^{\beta(t)}f(x,t)dx
+\] 
+es una función diferenciable en $[c,d]$ y más aún su derivada para cada $t \in [c,d] $ esta dada por:
+\[
+\varphi'(t) = f(\beta(t),t)\beta'(t)-f(\alpha(t),t)\alpha'(t)+ \int\limits_{\alpha(t)}^{\beta(t)}\frac{\partial f(x,t)}{\partial t}dx\ \ \ \textbf{\textsf{\cite{Bart1980}}}  
+ \]
+\end{teo}
+\label{C^}
+\nocite{*}
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Bibliografía}
+\bibliographystyle{plain}
+\bibliography{bibliografia}
+\end{document}
